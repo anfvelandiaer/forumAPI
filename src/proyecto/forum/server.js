@@ -1,0 +1,5 @@
+export const urlForum = 'ec2-18-205-59-255.compute-1.amazonaws.com'
+export const portForum = '4000'
+export const entryPointForum = 'api/v1'
+export const threadsForum = 'threads'
+export const entrysForum = 'entrys'
