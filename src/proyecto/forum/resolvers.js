@@ -12,7 +12,7 @@ import {
 
 const URLForumThreads = `http://${urlForum}:${portForum}/${entryPointForum}/${threadsForum}`;
 const URLForumEntrys = `http://${urlForum}:${portForum}/${entryPointForum}/${entrysForum}`;
-const URLTickets = `http://ec2-3-83-192-157.compute-1.amazonaws.com:8080/api/Ticket`;
+const URLTickets = `http://${urlTicket}:${portTicket}/${entryPointTicket}`;
 
 
 
