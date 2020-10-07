@@ -10,7 +10,10 @@ import {
 	threadTypeDef,
 	entryTypeDef,
 	entryQueries,
-	entryMutations
+	entryMutations,
+	ticketTypeDef,
+	ticketQueries,
+	ticketMutations,
 } from './proyecto/forum/typeDefs';
 
 import categoryResolvers from './proyecto/forum/resolvers';
@@ -20,15 +23,18 @@ const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		threadTypeDef,
-		entryTypeDef
+		entryTypeDef,
+		ticketTypeDef
 	],
 	[
 		threadQueries,
-		entryQueries
+		entryQueries,
+		ticketQueries
 	],
 	[
 		threadMutations,
-		entryMutations
+		entryMutations,
+		ticketMutations
 	]
 );
 

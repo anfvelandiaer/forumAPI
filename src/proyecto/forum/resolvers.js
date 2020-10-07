@@ -1,8 +1,18 @@
 import { generalRequest, getRequest } from '../../utilities';
-import { urlForum, portForum, entryPointForum, threadsForum, entrysForum } from './server';
+import {
+  urlForum,
+  portForum,
+  entryPointForum,
+  threadsForum,
+  entrysForum,
+  urlTicket,
+  portTicket,
+  entryPointTicket,
+} from "./server";
 
 const URLForumThreads = `http://${urlForum}:${portForum}/${entryPointForum}/${threadsForum}`;
 const URLForumEntrys = `http://${urlForum}:${portForum}/${entryPointForum}/${entrysForum}`;
+const URLTickets = `http://ec2-3-83-192-157.compute-1.amazonaws.com:8080/api/Ticket`;
 
 
 
@@ -22,6 +32,12 @@ const resolvers = {
 			generalRequest(`${URLForumEntrys}/${id}`, 'GET'),
 		entryThread: (_, { id, active }) =>
 			generalRequest(`${URLForumEntrys}/thread/${id}/${active}`, 'GET'),
+
+		
+		allTickets: (_) =>
+			getRequest(URLTickets, ''),
+		ticketById: (_, { id }) =>
+			generalRequest(`${URLTickets}/${id}`, 'GET'),
 	},
 	Mutation: {
 		createThread: (_, { thread }) =>
@@ -36,7 +52,14 @@ const resolvers = {
 		updateEntry: (_, { id, entry }) =>
 			generalRequest(`${URLForumEntrys}/${id}/`, 'PUT', entry),
 		deleteEntry: (_, { id }) =>
-			generalRequest(`${URLForumEntrys}/${id}/`, 'DELETE')
+			generalRequest(`${URLForumEntrys}/${id}/`, 'DELETE'),
+		
+		createTicket: (_, { ticket }) =>
+			generalRequest(`${URLTickets}/`, 'POST', ticket),
+		updateTicket: (_, { id, ticket }) =>
+			generalRequest(`${URLTickets}/${id}/`, 'PUT', ticket),
+		deleteTicket: (_, { id }) =>
+			generalRequest(`${URLTickets}/${id}/`, 'DELETE')
 	}
 };
 

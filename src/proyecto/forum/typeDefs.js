@@ -63,3 +63,29 @@ export const entryMutations = `
     deleteEntry(id: String!): String
 `;
 
+export const ticketTypeDef = `
+    type Ticket{
+        id: String!
+        userName: String!
+        section: String!
+        issue: String!
+        response: String!
+    }
+  input TicketInput {
+        id: String
+        userName: String!
+        section: String!
+        issue: String!
+        response: String!
+  }`;
+
+export const ticketQueries = `
+      allTickets: [Ticket]!
+      ticketById(id: String!): Ticket!
+  `;
+
+export const ticketMutations = `
+    createTicket(ticket: TicketInput!): Ticket!
+    updateTicket(id: String!, ticket: TicketInput!): Ticket!
+    deleteTicket(id: String!): String
+`;
