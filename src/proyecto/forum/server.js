@@ -1,4 +1,4 @@
-export const urlForum = 'ec2-3-237-14-93.compute-1.amazonaws.com'
+export const urlForum = 'ec2-100-26-179-244.compute-1.amazonaws.com'
 export const portForum = '4000'
 export const entryPointForum = 'api/v1'
 export const threadsForum = 'threads'
